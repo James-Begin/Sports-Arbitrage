@@ -3,7 +3,7 @@
 
 This project uses [The Odds API](https://the-odds-api.com/) to gather odds on sports. While The Odds API supports popular sports around the world, this project only includes major US sports. The API key included is limited to 500 calls per month, and a new key can be generated for free on their website.
 
-#Logic
+# Logic
 The logic behind this project is simple. The user chooses a sport and the API is called. 
 The API responds with a JSON containing data about bookmakers, teams, times, and odds.
 Only the odds, bookmakers, teams, and dates are collected. 
