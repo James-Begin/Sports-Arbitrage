@@ -10,4 +10,4 @@ Only the odds, bookmakers, teams, and dates are collected.
 Next, by iterating through the odds for each team and finding the average odds, the expected win % can be determined.    
 Then, surebets can be found by comparing odds across different bookmakers. (Usually, the potential gain from surebets are small and can be less than 1%.)   
   
-Overall, this was a project to test my python abilities and create a fun, semi-useful tool.
+Overall, using APIs and libraries like pandas, this project was mainly to test my python abilities and create a fun, semi-useful tool.
