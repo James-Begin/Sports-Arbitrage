@@ -33,7 +33,6 @@ sports_response = requests.get(
 if sports_response.status_code != 200:
     print(f'Failed to get sports: status_code {sports_response.status_code}, response body {sports_response.text}')
 
-
 print("Welcome to the Sportsbook!")
 time.sleep(1)
 print("Warning: There may be no odds available during sports off seasons.")
@@ -44,7 +43,6 @@ time.sleep(0.5)
 #choose sport
 while sportchoice < 1 or sportchoice > 4:
     sportchoice = int(input("1: Basketball (NBA) | 2: Baseball (MLB) | 3: Ice Hockey (NHL) | 4: Football (NFL)" + "\n"))
-
 
 #call the API with sports chosen. The keys and names of the sports can be found at https://the-odds-api.com/liveapi/guides/v4/#example-request
 if sportchoice == 1:
@@ -91,8 +89,7 @@ elif sportchoice == 4:
             'dateFormat': DATE_FORMAT,
         }
     )
-
-
+    
 #Error if problem getting Odds
 if odds_response.status_code != 200:
     print(f'Failed to get odds: status_code {odds_response.status_code}, response body {odds_response.text}')
@@ -115,7 +112,6 @@ else:
 
         nextgames = int(input(f"How many games do you want to view? | 1 -> {str(len(odds))}" + "\n"))
 
-
         for i in range(nextgames):
             
             #indent the json, making it easier to read and iterate through one game at a time
@@ -126,7 +122,6 @@ else:
             #this is all the same game, so we dont need to store a list of team names
             for k in range(len(odds_json["bookmakers"])):
 
-                
                 bookie = odds_json["bookmakers"][k]["title"]
 
                 bookies.append(bookie)
@@ -138,10 +133,6 @@ else:
                 odd2 = odds_json["bookmakers"][k]['markets'][0]['outcomes'][1]['price']
                 oddsb.append(odd2)
                 team2 = odds_json["bookmakers"][k]['markets'][0]['outcomes'][1]['name']
-
-
-
-
 
             #clear terminal
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -170,7 +161,6 @@ else:
             
             user_next = None
             
-            
             while user_next != "" and user_next != "q":
 
                 user_next = input("Press Enter to view next or Q to exit\n")
@@ -178,26 +168,14 @@ else:
             if user_next == "q":
                 exit()
 
-
             bookies = []
             oddsa = []
             oddsb = []
-
-
-
 
             #print the date the game takes place
             date = odds_json["commence_time"]
             date = parser.isoparse(date)
             print("\nDate (UTC): " + str(date)[0:19] + "\n")
 
-
-
 print('Remaining requests', odds_response.headers['x-requests-remaining'])
 print('Used requests', odds_response.headers['x-requests-used'])
-
-
-
-
-
-
